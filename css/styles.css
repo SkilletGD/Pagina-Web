@@ -998,3 +998,83 @@ input[type="file"] {
     padding-bottom: 4px;
 }
 
+/* ========================================== */
+/* RESPONSIVIDAD GLOBAL (PANTALLAS MÓVILES)  */
+/* ========================================== */
+@media (max-width: 768px) {
+    
+    /* 1. AJUSTE DE LA CABECERA Y EL MENÚ */
+    .main-header-nav {
+        padding: 10px 0;
+    }
+
+    .nav-container {
+        flex-direction: column; /* Apila el logo arriba y el menú abajo */
+        gap: 12px;
+        text-align: center;
+    }
+
+    .nav-menu {
+        gap: 15px; /* Espaciado más cómodo para tocar con el dedo */
+        flex-wrap: wrap; /* Si son muchos enlaces, se acomodan en dos filas sin romperse */
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 0.85rem; /* Ajuste sutil de tamaño */
+    }
+
+    .btn-nav {
+        padding: 6px 15px; /* Botón de cotizar más compacto */
+    }
+
+    /* 2. AJUSTE REVOLUCIONARIO PARA LA PÁGINA DE INICIO (PANTALLA DIVIDIDA) */
+    .split-container {
+        flex-direction: column; /* ¡La clave! Cambia de columnas a filas verticales */
+        height: auto; /* Permite que la pantalla crezca hacia abajo de forma natural */
+        min-height: 100vh;
+    }
+
+    .split {
+        width: 100% !important; /* Cada sección (Música y Tatuajes) toma todo el ancho */
+        height: 50vh; /* Cada mitad toma exactamente el 50% del alto de la pantalla del celular */
+        flex: none !important; /* Desactivamos el crecimiento por hover para que no se mueva raro en touch */
+    }
+
+    /* Ajuste de los textos en la pantalla dividida */
+    .split .content {
+        padding: 20px;
+    }
+
+    .split h2 {
+        font-size: 1.8rem; /* Títulos ligeramente más pequeños para que no se corten */
+        letter-spacing: 2px;
+    }
+
+    .split p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        max-width: 280px; /* Evita textos larguísimos de lado a lado */
+    }
+
+    /* 3. EVITAR QUE LOS EFECTOS DE MOVIMIENTO DEL FONDO FALLEN EN MÓVIL */
+    .layer-bg {
+        width: 100% !important; /* Desactivamos el ancho del 120% en móvil */
+        margin-left: 0 !important;
+        transform: none !important;
+    }
+
+    .split:hover .layer-bg {
+        transform: none !important; /* En celular no hay cursor, el hover táctil puede ser molesto */
+    }
+
+    /* 4. SECCIONES DE CONTENIDO GENERAL (Música, Tatuajes, etc.) */
+    .music-container,
+    .tattoo-container {
+        padding: 40px 20px; /* Reducimos los márgenes exagerados de PC */
+    }
+
+    .section-header h2 {
+        font-size: 2rem; /* Títulos principales de sección más balanceados */
+    }
+}

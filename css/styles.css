@@ -1,0 +1,1000 @@
+/* --- RESET BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================== */
+/* --- AJUSTE DE CONTENEDOR PARA EL SCROLL --- */
+/* ========================================== */
+body {
+    /* Permitimos que el cuerpo de la página scrollee hacia el footer */
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    overflow-y: auto !important; 
+}
+
+.split-container {
+    /* Evita que bloquee rígidamente la pantalla y permite fluir al footer */
+    min-height: 100vh; 
+    height: 100vh;
+}
+
+/* ========================================== */
+/* --- ESTILOS COMPLETOS DEL FOOTER --- */
+/* ========================================== */
+.main-footer {
+    background-color: #070707; /* Un negro ligeramente más profundo */ 
+    border-top: 1px solid rgba(255, 106, 0, 0.15); /* Línea sutil color flama superior */
+    padding: 70px 5% 20px;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto; 
+    display: grid;
+    /* Crea 3 columnas perfectas en PC y se adapta solo */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-section h3 {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #fff; 
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer-section h3 span {
+    color: #ff6a00; /* Color flama para resaltar la marca */ 
+}
+
+.footer-section h4 {
+    font-size: 1rem;
+    text-transform: uppercase; 
+    letter-spacing: 1.5px;
+    color: #ff6a00; /* Títulos de bloques en naranja flama */ 
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.footer-section p {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Enlaces y listas internas */
+.footer-section ul {
+    list-style: none; 
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+    color: #888;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Despega los iconos de texto en la sección de contacto */
+}
+
+.footer-section ul li a {
+    color: #aaa; 
+    text-decoration: none; 
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ff6a00; /* Iluminación naranja al pasar el cursor */
+    padding-left: 5px; /* Pequeño desplazamiento interactivo */
+}
+
+/* ICONOS DE REDES SOCIALES INTERACTIVOS */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #121212;
+    border: 1px solid #222;
+    border-radius: 50%; /* Iconos circulares modernos */
+    color: #aaa;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Efectos hover individuales para cada red social respetando su color de marca */
+.footer-socials a:hover {
+    transform: translateY(-5px);
+    color: #fff;
+}
+.footer-socials a[title="Facebook"]:hover {
+    background-color: #1877f2;
+    border-color: #1877f2;
+    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+}
+.footer-socials a[title="YouTube"]:hover {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+.footer-socials a[title="Instagram"]:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: transparent;
+    box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4);
+}
+
+/* Barra de Créditos Inferior */
+.footer-credits {
+    text-align: center; 
+    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+    padding-top: 25px; 
+    color: #555;
+    font-size: 0.85rem;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Una columna arriba de la otra en móviles */
+        text-align: center; 
+        gap: 30px; 
+    }
+    .footer-socials {
+        justify-content: center; /* Centra los iconos en celulares */
+    }
+    .footer-section ul li {
+        justify-content: center;
+    }
+    .footer-section ul li a:hover {
+        padding-left: 0; /* Desactiva el desplazamiento lateral en móvil */
+    }
+}
+
+/* --- CONTENEDOR SPLIT SCREEN --- */
+.split-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.split {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+}
+
+/* Cuando pasas el mouse, la sección se expande */
+.split:hover {
+    flex: 1.5;
+    z-index: 2;
+}
+
+/* --- FONDOS CON CAPA OSCURA --- */
+.layer-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* La clave: hacemos que la imagen sea un 20% más ancha que el contenedor */
+    width: 120%; 
+    height: 100%; 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    /* Centramos la imagen por defecto restando el excedente */
+    margin-left: -10%; 
+    
+    /* Transición suave para el movimiento de lado a lado */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1; 
+}
+
+/* LA MAGIA: Un filtro oscuro superpuesto sobre cada fondo para dar contraste */
+.split::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 0.65 (65%) de opacidad oscura. Si quieres ver más tus fotos, bájalo a 0.50 */
+    background: rgba(0, 0, 0, 0.65); 
+    z-index: 2;
+    transition: background 0.5s ease;
+}
+
+/* Efecto de movimiento lateral (en el eje X) sin estirarse */
+.split.left:hover .layer-bg {
+    transform: translateX(5%); /* Mueve el fondo de música sutilmente a la derecha */
+}
+
+.split.right:hover .layer-bg {
+    transform: translateX(-5%); /* Mueve el fondo de tatuajes sutilmente a la izquierda */
+}
+
+/* Mantenemos el filtro oscuro intacto */
+.split::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); 
+    z-index: 2;
+    transition: background 0.5s ease;
+}
+
+.split:hover::before {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+/* Tus imágenes locales reales */
+.music-bg {
+    background-image: url('../assets/images/Fondo_Musica.jpg'); 
+}
+
+.tattoo-bg {
+    background-image: url('../assets/images/Fondo_Tatto.png'); 
+}
+
+/* --- CONTENIDO --- */
+.content {
+    position: relative;
+    z-index: 3; /* Se posiciona por encima del filtro oscuro */
+    padding: 30px 40px;
+    max-width: 85%;
+    text-align: center;
+    
+    /* Esta caja difumina el fondo solo detrás de las letras, separándolo de tus logos */
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.content h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    /* Sombra de texto sólida para que resalte en cualquier pantalla */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.split.left h2 {
+    color: #ff6a00; /* Color Flama */
+    text-shadow: 0 0 20px rgba(255, 106, 0, 0.3);
+}
+
+.split.right h2 {
+    color: #e0e0e0; /* Color Tinta / Plata */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.content p {
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    color: #ddd;
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* --- BOTONES --- */
+.btn {
+    display: inline-block;
+    padding: 12px 35px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-music {
+    background-color: transparent;
+    color: #ff6a00;
+    border: 2px solid #ff6a00;
+}
+
+.btn-music:hover {
+    background-color: #ff6a00;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 106, 0, 0.6);
+}
+
+.btn-tattoo {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-tattoo:hover {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* --- SECCIÓN DE MÚSICA --- */
+.music-container {
+    background-color: #0d0d0d;
+    padding: 100px 10%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Encabezados de Sección Comunes */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header .subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    color: #ff6a00;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.section-header .divider {
+    width: 60px;
+    height: 4px;
+    background-color: #ff6a00;
+    margin: 20px auto 0;
+}
+
+/* Grid de Videos */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* Tarjetas de Video */
+.video-card {
+    background-color: #121212;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #222;
+    transition: all 0.4s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff6a00;
+    box-shadow: 0 10px 20px rgba(255, 106, 0, 0.1);
+}
+
+/* Mantener proporción de video responsivo (16:9) */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-info h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.video-info p {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+/* Footer de Música */
+.music-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.music-footer p {
+    color: #888;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+/* --- SECCIÓN DE TATUAJES --- */
+.tattoo-container {
+    background-color: #121212;
+    padding: 100px 10%;
+    min-height: 100vh;
+}
+
+.divider-tattoo {
+    width: 60px;
+    height: 4px;
+    background-color: #e0e0e0;
+    margin: 20px auto 0;
+}
+
+/* Botones de Filtro */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #aaa;
+    padding: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    border-color: #fff;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================== */
+/* GRID TIPO PINTEREST (MASONRY DE ALTO IMPACTO) */
+/* ========================================== */
+.portfolio-grid {
+    display: grid;
+    /* Usamos filas más pequeñas para poder jugar con la altura de las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: 200px; /* Base para calcular alturas */
+    gap: 25px;
+    padding: 20px 0;
+}
+
+/* TARJETA BASE */
+.portfolio-item {
+    display: block;
+    grid-row: span 2; /* Por defecto ocupan 2 filas (400px de alto, casi cuadradas) */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.portfolio-item.hide {
+    display: none;
+}
+
+/* EFECTO PINTEREST: Variamos los formatos de forma intercalada */
+/* Hacemos que algunas tarjetas sean el doble de altas (Rectangulares verticales) */
+.portfolio-grid .portfolio-item:nth-child(3n + 1) {
+    grid-row: span 3; /* Ocupa 600px de alto */
+}
+
+/* Hacemos que algunas sean más bajitas (Rectangulares horizontales) */
+.portfolio-grid .portfolio-item:nth-child(4n + 3) {
+    grid-row: span 2; 
+}
+
+/* ESTRUCTURA INTERNA */
+.item-inner {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Se adapta al tamaño asignado por Pinterest */
+    border-radius: 16px; /* Bordes redondeados estéticos */
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: #161616;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+}
+
+.portfolio-item:hover .item-inner {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(255, 106, 0, 0.15);
+    border-color: rgba(255, 106, 0, 0.3);
+}
+
+/* IMÁGENES */
+.item-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portfolio-item:hover .item-inner img {
+    transform: scale(1.05);
+}
+
+/* OVERLAY ESTILO MASONRY GRADIENTE */
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    z-index: 5;
+}
+
+.portfolio-item:hover .item-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.item-overlay span {
+    font-size: 0.75rem;
+    color: #ff6a00;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.item-overlay p {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 3px;
+}
+
+/* ========================================== */
+/* EFECTO CARRUSEL AUTOMÁTICO INTERNO         */
+/* ========================================== */
+.carousel-wrapper {
+    display: flex;
+    width: 300%; /* Para albergar 3 imágenes (100% cada una) */
+    height: 100%;
+    animation: slideCarousel 12s infinite steps(1, linear); /* Animación infinita fluida */
+}
+
+.carousel-wrapper img {
+    width: 33.333%; /* Cada imagen ocupa exactamente el ancho de la tarjeta */
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animación para que deslice entre las 3 fotos solas */
+@keyframes slideCarousel {
+    0%, 30% { transform: translateX(0); }         /* Muestra Foto 1 */
+    33%, 63% { transform: translateX(-33.333%); }  /* Desplaza a Foto 2 */
+    66%, 96% { transform: translateX(-66.666%); }  /* Desplaza a Foto 3 */
+    100% { transform: translateX(0); }             /* Regresa a Foto 1 */
+}
+
+/* --- SECCIÓN DE CONTACTO --- */
+.contact-container {
+    background-color: #0d0d0d;
+    padding: 100px 10%;
+    min-height: 100vh;
+}
+
+.divider-contact {
+    width: 60px;
+    height: 4px;
+    background-color: #ff6a00;
+    margin: 20px auto 0;
+}
+
+.contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #121212;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #222;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: #aaa;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: #ff6a00;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #ff6a00;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.btn-submit:hover {
+    background-color: #e25822;
+    box-shadow: 0 0 15px rgba(255, 106, 0, 0.4);
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: #050505;
+    padding: 50px 10% 20px;
+    border-top: 1px solid #111;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.footer-brand p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer-links h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ff6a00;
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #111;
+    padding-top: 20px;
+    color: #444;
+    font-size: 0.8rem;
+}
+
+/* Responsividad básica para móviles */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+/* --- OPCIONES DE CONTACTO EN PANTALLA --- */
+.contact-options {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.contact-card {
+    background-color: #121212;
+    padding: 40px 30px;
+    border-radius: 8px;
+    border: 1px solid #222;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.contact-card p {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Modificación para inputs tipo archivo e email */
+input[type="email"], input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    border-radius: 4px;
+}
+input[type="file"] {
+    padding: 8px;
+    font-size: 0.85rem;
+}
+
+/* --- ESTILOS DE LA VENTANA EMERGENTE (MODAL) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px); /* Fondo borroso estético */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+/* Clase que activará el JavaScript para mostrar el modal */
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: #121212;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 550px;
+    max-height: 90vh;
+    overflow-y: auto; /* Por si la pantalla es chica, permite scroll interno */
+    position: relative;
+    border: 1px solid #333;
+    transform: translateY(-20px);
+    transition: transform 0.4s ease;
+}
+
+.modal-overlay.open .modal-content {
+    transform: translateY(0);
+}
+
+.modal-content h3 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 5px;
+    color: #ff6a00;
+}
+
+.modal-content p {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+/* Botón de cerrar (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #aaa;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+.main-header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(8px); /* Efecto vidrio esmerilado */
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+/* Cambiaremos el fondo cuando el usuario haga scroll usando JS */
+.main-header-nav.scrolled {
+    background-color: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid rgba(255, 106, 0, 0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: #ff6a00; /* Toque flama */
+}
+
+/* Menú */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff6a00;
+}
+
+/* Botón llamativo dentro del nav */
+.btn-nav {
+    background-color: #ff6a00;
+    color: #000;
+    padding: 8px 18px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-nav:hover {
+    color: #fff;
+    background-color: transparent;
+    box-shadow: 0 0 10px rgba(255, 106, 0, 0.5);
+    outline: 1px solid #ff6a00;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+    .nav-menu {
+        gap: 15px;
+    }
+}
+
+/* Estado activo para identificar la página actual */
+.nav-menu .nav-link.active {
+    color: #ff6a00; /* Color flama */
+    border-bottom: 2px solid #ff6a00;
+    padding-bottom: 4px;
+}
+
